@@ -19,12 +19,36 @@ st.write("Adjust the inputs below to predict the likelihood of a customer defaul
 #-------------------------------
 #User input fields
 #-------------------------------
-income = st.number_input("Total income (£)", min_value=0, value=30000)
-savings = st.number_input("Total savings (£)", min_value=0, value=50000)
-debt = st.number_input("Total debt (£)", min_value=0, value=2000)
+income = st.number_input(
+    "Total income (£)",
+    min_value=0,
+    max_value=120_000,
+    value=30_000,
+    step=1_000
+)
 
-cat_gambling = st.selectbox("Gambling category", ["no","low","high"])
-cat_credit_card = st.selectbox("Has a credit card?", ["yes","no"])
+savings = st.number_input(
+    "Total savings (£)",
+    min_value=0,
+    max_value=200_000,
+    value=10_000,
+    step=1_000
+)
+
+debt = st.number_input(
+    "Total debt (£)",
+    min_value=0,
+    max_value=100_000,
+    value=2_000,
+    step=1_000
+)
+
+#income = st.number_input("Total income (£)", min_value=0, value=30000)
+#savings = st.number_input("Total savings (£)", min_value=0, value=50000)
+#debt = st.number_input("Total debt (£)", min_value=0, value=2000)
+
+cat_gambling = st.selectbox("Do you gamble and if so, how frequently?", ["no","low","high"])
+cat_credit_card = st.selectbox("Do you have a credit card?", ["yes","no"])
 
 #Compute rations using user inputs
 r_savings_income = savings / income if income > 0 else 0
