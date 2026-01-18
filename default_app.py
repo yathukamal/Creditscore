@@ -1,4 +1,4 @@
-#Set up app for streamlit to deploy for external users
+#Set up an app for streamlit to deploy for external users
 #import libraries
 import streamlit as st
 import joblib
